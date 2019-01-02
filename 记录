@@ -1,0 +1,42 @@
+1,搭建好dokcer-registry后，可以使用API来查看和删除镜像。
+在此基础上，github上有现成的清理工具
+此例为：https://github.com/andrey-pohilko/registry-cli
+下的registry.py
+
+pip install requests
+
+vim /etc/docker/registry/config.yml
+添加
+storage:
+    ...
+    delete:
+       enabled: true  
+
+修改后，重新仓库容器服务。
+查看镜像
+python registry.py -r http://localhosts:5000
+
+2删除镜像tag
+#删除镜像tag,默认保留10个
+python registry.py -r http://localhosts:5000 -i pmms/config-server -d
+
+#删除镜像的所有tag
+python registry.py -r http://localhosts:5000 -i pmms/config-server --delete-all
+
+#删除镜像tag，保留自定义个tab
+python registry.py -r http://localhosts:5000 -i pmms/config-server -d --num 1
+
+3进入镜像目录删除镜像目录
+cd /etc/docker/registry进删除目录
+
+4使用garbage-collect来清理一下
+进入registry容器内，执行
+registry garbage-collect /etc/docker/registry/config.yml
+
+
+#!/bin/bash
+cd /root/registry-cli
+./registry.py -r http://localhost:8080
+./registry.py -r http://localhost:8080 --delete --num 20
+./registry.py -r http://localhost:8080
+docker exec -t 0383bfeda3b8 sh -c "registry garbage-collect /etc/docker/registry/config.yml"
