@@ -4,6 +4,8 @@
 下的registry.py
 
 pip install requests
+#安装依赖包
+pip install -r requirements-build.txt
 
 vim /etc/docker/registry/config.yml
 添加
