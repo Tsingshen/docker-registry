@@ -37,6 +37,6 @@ registry garbage-collect /etc/docker/registry/config.yml
 #!/bin/bash
 cd /root/registry-cli
 ./registry.py -r http://localhost:8080
-./registry.py -r http://localhost:8080 --delete --num 20
+./registry.py -r http://localhost:8080 -d --num 20
 ./registry.py -r http://localhost:8080
 docker exec -t 0383bfeda3b8 sh -c "registry garbage-collect /etc/docker/registry/config.yml"
