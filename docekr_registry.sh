@@ -9,8 +9,7 @@ services:
       - 80:5000
     volumes:
       - /data/registry:/var/lib/registry
-    restart:
-      "always"
+    restart: always
     environment:
       REGISTRY_STORAGE_DELETE_ENABLED: "true"
 EOF
