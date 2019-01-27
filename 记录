@@ -16,17 +16,17 @@ storage:
 
 修改后，重新仓库容器服务。
 查看镜像
-python registry.py -r http://localhosts:5000
+python registry.py -r http://localhost:5000
 
 2删除镜像tag
 #删除镜像tag,默认保留10个
-python registry.py -r http://localhosts:5000 -i pmms/config-server -d
+python registry.py -r http://localhost:5000 -i pmms/config-server -d
 
 #删除镜像的所有tag
-python registry.py -r http://localhosts:5000 -i pmms/config-server --delete-all
+python registry.py -r http://localhost:5000 -i pmms/config-server --delete-all
 
 #删除镜像tag，保留自定义个tab
-python registry.py -r http://localhosts:5000 -i pmms/config-server -d --num 1
+python registry.py -r http://localhost:5000 -i pmms/config-server -d --num 1
 
 3进入镜像目录删除镜像目录
 cd /etc/docker/registry进删除目录
