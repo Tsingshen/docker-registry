@@ -1,20 +1,19 @@
-1,搭建好dokcer-registry后，可以使用API来查看和删除镜像。
-在此基础上，github上有现成的清理工具
-此例为：https://github.com/andrey-pohilko/registry-cli
-下的registry.py
+#1,搭建好dokcer-registry后，可以使用API来查看和删除镜像。
+#在此基础上，github上有现成的清理工具
+#此例为：https://github.com/andrey-pohilko/registry-cli
+#下的registry.py
+
+git clone https://github.com/andrey-pohilko/registry-cli.git
+
+#use python2; yum install python-pip -y
 
 pip install requests
 #安装依赖包
 pip install -r requirements-build.txt
 
-vim /etc/docker/registry/config.yml
-添加
-storage:
-    ...
-    delete:
-       enabled: true  
 
-修改后，重新仓库容器服务。
+#on the docker-registry build, add REGISTRY_STORAGE_DELETE_ENABLED: "true",for delete purpose
+
 查看镜像
 python registry.py -r http://localhost:5000
 
