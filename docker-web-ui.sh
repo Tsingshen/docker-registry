@@ -7,3 +7,4 @@ hyper/docker-registry-web
 
 ## docker-registry-name不要定义为registry,与web-ui容器内变量冲突
 ## 一定link上，因为要使用一个REGISTRY_NAME=localhost:5000
+## https://hub.docker.com/r/hyper/docker-registry-web/
