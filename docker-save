@@ -1,0 +1,9 @@
+#docker images migration
+
+docker save <images:tag> | gzip <--lever 0-9> > <images-name>.tar.gz
+
+# docker load 
+# gzip -c reserve original file -d decompression, and gzip -d == gunzip 
+gzip -cd <images-name>.tar.gz | docker load
+#or
+gunzip -c <images-name>.tar.gz | docker load
